@@ -1,6 +1,8 @@
 package com.michaelmagdy.zooapp
 
-class Animal {
+import java.io.Serializable
+
+class Animal: Serializable {
 
     var name:String ?= null
     var descr:String ?= null

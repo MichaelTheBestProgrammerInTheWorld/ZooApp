@@ -1,8 +1,11 @@
 package com.michaelmagdy.zooapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,5 +38,13 @@ class MainActivity : AppCompatActivity() {
 
         adapter = AnimalsAdapter(listOfAnimals)
         animals_list_view.adapter = adapter
+
+        animals_list_view.setOnItemClickListener { parent, view, position, id ->
+
+            val intent = Intent(this, AnimalInfoActivity::class.java)
+            intent.putExtra("animal",  listOfAnimals[position] as Serializable)
+            startActivity(intent)
+
+        }
     }
 }
